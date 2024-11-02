@@ -7,7 +7,7 @@ const Footer = () => {
         <Link to="/" className="link link-hover">
           Home
         </Link>
-        <Link to="/coffee" className="link link-hover">
+        <Link to="/coffees" className="link link-hover">
           Coffee
         </Link>
         <Link to="/dashboard" className="link link-hover">
@@ -53,7 +53,8 @@ const Footer = () => {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by Nahid Hasan
+          Copyright © {new Date().getFullYear()} - All right reserved by Nahid
+          Hasan
         </p>
       </aside>
     </footer>

@@ -2,17 +2,49 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-white/30 backdrop-blur-2xl ">
-      <div className="flex-1">
-        <Link to="/" className=" font-thin text-2xl">
+    <div className="navbar bg-base-100">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-8 font-light text-lg"
+          >
+            <NavLink to="/"> Home </NavLink>
+            <NavLink to="/coffee"> Coffee </NavLink>
+            <NavLink to="/dashboard"> Dashboard </NavLink>
+          </ul>
+        </div>
+        <Link to="/" className=" hover:text-warning text-2xl font-thin">
           COFFEE_BOOK
         </Link>
       </div>
-      <div className="flex-none">
+      <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-8 font-light text-lg">
-          <NavLink to="/"> Home </NavLink>
-          <NavLink to="/coffee"> Coffee </NavLink>
-          <NavLink to="/dashboard"> Dashboard </NavLink>
+          <NavLink to="/" className="hover:text-warning">
+            Home
+          </NavLink>
+          <NavLink to="/coffees" className="hover:text-warning">
+            Coffee
+          </NavLink>
+          <NavLink to="/dashboard" className="hover:text-warning">
+            Dashboard
+          </NavLink>
         </ul>
       </div>
     </div>
