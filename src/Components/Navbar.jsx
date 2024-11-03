@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-white/30 backdrop-blur z-10 fixed px-8">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,9 +25,38 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-8 font-light text-lg"
           >
-            <NavLink to="/"> Home </NavLink>
-            <NavLink to="/coffee"> Coffee </NavLink>
-            <NavLink to="/dashboard"> Dashboard </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `font-semibold ${
+                  isActive ? "text-warning" : "hover:text-warning"
+                }`
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `font-semibold ${
+                  isActive ? "text-warning" : "hover:text-warning"
+                }`
+              }
+              to="/coffees"
+            >
+              {" "}
+              Coffee{" "}
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `font-semibold ${
+                  isActive ? "text-warning" : "hover:text-warning"
+                }`
+              }
+              to="/dashboard"
+            >
+              {" "}
+              Dashboard{" "}
+            </NavLink>
           </ul>
         </div>
         <Link to="/" className=" hover:text-warning text-2xl font-thin">
@@ -35,14 +64,37 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-8 font-light text-lg">
-          <NavLink to="/" className="hover:text-warning">
+        <ul className="menu menu-horizontal px-1 gap-4 font-light text-lg">
+          <NavLink
+            className={({ isActive }) =>
+              ` ${
+                isActive ? "text-warning font-semibold" : "hover:text-warning"
+              }`
+            }
+            to="/"
+          >
             Home
           </NavLink>
-          <NavLink to="/coffees" className="hover:text-warning">
+          <NavLink
+            className={({ isActive }) =>
+              ` ${
+                isActive ? "text-warning font-semibold" : "hover:text-warning"
+              }`
+            }
+            to="/coffees"
+          >
+            
             Coffee
           </NavLink>
-          <NavLink to="/dashboard" className="hover:text-warning">
+          <NavLink
+            className={({ isActive }) =>
+              ` ${
+                isActive ? "text-warning font-semibold" : "hover:text-warning"
+              }`
+            }
+            to="/dashboard"
+          >
+            
             Dashboard
           </NavLink>
         </ul>

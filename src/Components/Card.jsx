@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Card = ({ coffee }) => {
   //console.log(coffee)
-  const { category, image, name, popularity, rating, origin, type } =
-    coffee || {};
+  const { id, category, image, name, popularity, rating, origin, type } =
+    coffee;
   return (
-    <Link>
-      <div className="card card-compact bg-base-100 w-96 shadow-xl transition   hover:scale-105">
+    <Link to={`/coffee/${id}`}>
+      <div className="card card-compact bg-base-100 shadow-xl transition   hover:scale-105">
         <figure className="h-52">
           <img className="w-full" src={image} alt={name} />
         </figure>

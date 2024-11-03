@@ -6,10 +6,12 @@ const CategoryTab = ({ categories }) => {
     <div role="tablist" className="tabs tabs-lifted">
       {categories.map((category) => (
         <NavLink
-          key={category.id}
-          to={`/category/${category.category}`}
+          key={category.category}
+          to={`/coffees/${category.category}`}
           role="tab"
-          className="tab text-xl font-thin"
+          className={({ isActive }) =>
+            `tab text-xl font-thin ${isActive ? "tab-active" : ""}`
+          }
         >
           {category.category}
         </NavLink>

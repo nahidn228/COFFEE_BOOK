@@ -1,32 +1,40 @@
-import { useLoaderData, useParams } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Card from "./Card";
 
 const CoffeeCards = () => {
+  const navigate = useNavigate();
   const data = useLoaderData();
-  const { categoryId } = useParams();
+  const { category } = useParams();
   //console.log(data);
-  //console.log(categoryId);
-  const [coffees, setCoffees] = useState([data]);
+  //console.log(category);
+  const [coffees, setCoffees] = useState([]);
 
   useEffect(() => {
-    if (categoryId) {
+    if (category) {
       const filteredCoffee = [...data].filter(
-        (coffee) => coffee.category === categoryId
+        (coffee) => coffee.category === category
       );
       setCoffees(filteredCoffee);
     } else {
-      setCoffees(data);
+      setCoffees(data.slice(0, 6));
     }
-  }, [data, categoryId]);
+  }, [category, data]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12 ">
-      {coffees.map((coffee) => (
-        // <p> {coffee.name} </p>
-        <Card key={coffee.id} coffee={coffee}></Card>
-      ))}
+    <div className="max-w-screen-xl  mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12 ">
+        {coffees.map((coffee) => (
+          <Card key={coffee.id} coffee={coffee}></Card>
+        ))}
+      </div>
+
+      <button
+        onClick={() => navigate("/coffees")}
+        className="btn btn-outline hover:btn-warning text-gray-800 md:px-8"
+      >
+        View All
+      </button>
     </div>
   );
 };

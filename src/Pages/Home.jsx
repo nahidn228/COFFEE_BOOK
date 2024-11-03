@@ -8,7 +8,7 @@ const Home = () => {
   const categories = useLoaderData();
   //console.log(categories);
   return (
-    <div>
+    <div className="max-w-screen-xl  mx-auto">
       {/* Banner */}
       <Banner></Banner>
       {/* Heading */}

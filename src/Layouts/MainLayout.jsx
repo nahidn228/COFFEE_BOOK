@@ -5,10 +5,12 @@ import Navbar from "../Components/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-screen-xl  mx-auto">
+    <div className="w-11/12 md:w-full mx-auto">
       {/* Nav Bar */}
-      <Navbar></Navbar>
-      <div className="min-h-[calc(100vh-288px)] py-12">
+      <div className="h-12">
+        <Navbar></Navbar>
+      </div>
+      <div className="min-h-[calc(100vh-288px)] py-12 max-w-screen-xl  mx-auto">
         {/* Dynamic Section */}
         <Outlet></Outlet>
       </div>
