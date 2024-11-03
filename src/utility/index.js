@@ -31,6 +31,7 @@ const addFavorite = (coffee) => {
 
   favorites.push(coffee);
   localStorage.setItem("favorite", JSON.stringify(favorites));
+  toast.success("Successfully added");
 };
 
 // remove selected coffee from local storage
